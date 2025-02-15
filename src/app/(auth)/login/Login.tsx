@@ -16,7 +16,7 @@ export default function Login() {
       <div className="bg-white rounded-2xl shadow-lg flex max-w-4xl w-full">
         {/* Bagian Kiri */}
         <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-gradient-to-r from-indigo-500 to-blue-400 rounded-l-2xl p-10">
-          <h2 className="text-white text-3xl font-semibold">MASUK</h2>
+          <h2 className="text-white text-3xl font-semibold">LOGIN</h2>
         </div>
 
         {/* Bagian Kanan */}
@@ -25,7 +25,7 @@ export default function Login() {
             <div className="bg-indigo-500 p-3 rounded-full">
               <FaUser className="text-white text-4xl" />
             </div>
-            <h1 className="text-3xl font-bold text-indigo-500 mt-4">LOGIN</h1>
+            <h1 className="text-3xl font-bold text-indigo-500 mt-4">DAFTAR</h1>
           </div>
 
           <form className="w-full" onSubmit={handleLogin}>
