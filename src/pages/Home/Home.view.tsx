@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/carousel";
 import { FC } from "react";
 import { HomeViewProps } from "./Home.type";
-import TestimonialCard from "@/components/TestimonialCard";
+import TestimonialCard from "@/components/TestimonialCard/TestimonialCard.view";
 
 const HomeView: FC<HomeViewProps> = ({ dummyTestimonials }) => {
   return (
@@ -90,12 +90,12 @@ const HomeView: FC<HomeViewProps> = ({ dummyTestimonials }) => {
             membuat kehidupan Anda lebih menyenangkan!
           </p>
         </div>
-        <Carousel className="h-[300px] w-[900px]">
-          <CarouselContent className="h-[300px]">
+        <Carousel className="h-[220px] w-[1200px]">
+          <CarouselContent>
             {dummyTestimonials.map((item, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1">
-                  <TestimonialCard />
+                  <TestimonialCard testimonial={item} />
                 </div>
               </CarouselItem>
             ))}
