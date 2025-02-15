@@ -1,7 +1,3 @@
-import React from 'react'
+import MasterAlat from "@/pages/Admin/MasterAlat/MasterAlat";
 
-export default function page() {
-  return (
-    <div>page</div>
-  )
-}
+export default MasterAlat;

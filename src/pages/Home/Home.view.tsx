@@ -17,7 +17,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { FC } from "react";
+import { FC, memo } from "react";
 import { HomeViewProps } from "./Home.type";
 import TestimonialCard from "@/components/TestimonialCard/TestimonialCard.view";
 import Link from "next/link";
@@ -119,4 +119,4 @@ const HomeView: FC<HomeViewProps> = ({ dummyTestimonials }) => {
   );
 };
 
-export default HomeView;
+export default memo(HomeView);

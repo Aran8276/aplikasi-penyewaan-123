@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter();
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <NextTopLoader />
         <ErrorBoundary>{children}</ErrorBoundary>
+        <Toaster />
       </body>
     </html>
   );

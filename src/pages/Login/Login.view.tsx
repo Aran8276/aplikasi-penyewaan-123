@@ -1,6 +1,6 @@
 import { Lock, User } from "lucide-react";
 import Link from "next/link";
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 
 const LoginView: FC = () => {
   return (
@@ -75,4 +75,4 @@ const LoginView: FC = () => {
   );
 };
 
-export default LoginView;
+export default memo(LoginView);

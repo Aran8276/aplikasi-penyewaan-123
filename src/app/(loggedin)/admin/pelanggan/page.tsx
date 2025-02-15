@@ -1,9 +1,3 @@
-import React from "react";
+import MasterPelanggan from "@/pages/Admin/MasterPelanggan/MasterPelanggan";
 
-export default function page() {
-  return (
-    <div>
-      <div className="">Page</div>
-    </div>
-  );
-}
+export default MasterPelanggan;

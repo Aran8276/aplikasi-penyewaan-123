@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { memo } from "react";
 import { tentangFeatures } from "./Tentang.data";
 import Link from "next/link";
 
-export default function Tentang() {
+const Tentang = () => {
   return (
     <div className="px-24 py-12">
       <section className="mb-16 text-center animate-fade-in">
@@ -72,4 +72,6 @@ export default function Tentang() {
       </section>
     </div>
   );
-}
+};
+
+export default memo(Tentang);

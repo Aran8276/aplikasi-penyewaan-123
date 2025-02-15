@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import Link from "next/link";
-import { FC } from "react";
+import { FC, memo } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
 const KontakView: FC = () => {
@@ -80,4 +80,4 @@ const KontakView: FC = () => {
   );
 };
 
-export default KontakView;
+export default memo(KontakView);
