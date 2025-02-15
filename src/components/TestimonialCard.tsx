@@ -1,5 +1,10 @@
 import React from "react";
+import { Card } from "./ui/card";
 
 export default function TestimonialCard() {
-  return <div className="bg-gray-300"></div>;
+  return (
+    <Card className="bg-gray-100 h-[300px]">
+      <div className="">Abcd</div>
+    </Card>
+  );
 }
