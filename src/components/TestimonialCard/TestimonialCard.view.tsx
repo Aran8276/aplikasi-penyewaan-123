@@ -5,9 +5,9 @@ import { Star } from "lucide-react";
 
 const TestimonialCard: FC<TestimonialCardProps> = ({ testimonial }) => {
   return (
-    <Card className="p-5 bg-green-50 h-[180px]">
+    <Card className="flex flex-col space-y-2 p-5 bg-green-50 h-[180px]">
       <h2 className="text-lg font-bold">{testimonial.person}</h2>
-      <div className="flex space-x-4">
+      <div className="flex space-x-2">
         {Array.from({ length: testimonial.stars }).map((_, index) => (
           <Star className="fill-yellow-300 stroke-yellow-300" key={index} />
         ))}

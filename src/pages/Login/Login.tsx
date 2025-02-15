@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 "use client";
 import { useState } from "react";
 import { FaUser, FaLock, FaFacebook, FaGoogle } from "react-icons/fa";
@@ -78,10 +77,4 @@ export default function Login() {
       </div>
     </div>
   );
-=======
-import Login from "@/pages/Login/Login";
-
-export default function LoginPage() {
-  return <Login />;
->>>>>>> b3eb1ff17adec166e7b6e971a3bd10e294bda5a1
 }
