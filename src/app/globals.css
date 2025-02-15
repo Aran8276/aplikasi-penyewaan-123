@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -53,7 +53,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
@@ -63,4 +63,63 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.login-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.login-input-container input[type="text"],
+.login-input-container input[type="password"] {
+  border: none;
+  border-bottom: 2px solid #ccc;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+}
+
+.login-input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.login-input-container input[type="text"]:focus ~ .label,
+.login-input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 12px;
+  color: #333;
+}
+
+.login-input-container input[type="password"]:focus ~ .label,
+.login-input-container input[type="password"]:valid ~ .label {
+  top: -20px;
+  font-size: 12px;
+  color: #333;
+}
+
+.login-input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  @apply bg-indigo-500;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.login-input-container input[type="text"]:focus ~ .underline,
+.login-input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+
+.login-input-container input[type="password"]:focus ~ .underline,
+.login-input-container input[type="password"]:valid ~ .underline {
+  transform: scaleX(1);
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderView from "./HeaderView";
+import HeaderView from "./Header.view";
 
 export default function Header() {
   const isAdmin = true;

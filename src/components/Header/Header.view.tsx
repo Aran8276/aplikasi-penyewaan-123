@@ -39,19 +39,26 @@ const HeaderView: FC<HeaderViewProps> = ({ isAdmin }) => {
               <DropdownMenuLabel>Menu Admin</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {adminNavData.map((item, index) => (
-                <DropdownMenuItem key={index}>{item.name}</DropdownMenuItem>
+                <Link key={index} href={item.link}>
+                  <DropdownMenuItem
+                    className="hover:cursor-pointer"
+                    key={index}
+                  >
+                    {item.name}
+                  </DropdownMenuItem>
+                </Link>
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
         )}
       </nav>
       <section className="flex space-x-3">
-        <Button className="px-6" variant={"ghost"}>
-          Masuk
-        </Button>
         <Link href="/login">
-          <Button className="px-6 bg-indigo-500">Daftar</Button>
+          <Button className="px-6" variant={"ghost"}>
+            Masuk
+          </Button>
         </Link>
+        <Button className="px-6 bg-indigo-500">Daftar</Button>
       </section>
     </header>
   );
