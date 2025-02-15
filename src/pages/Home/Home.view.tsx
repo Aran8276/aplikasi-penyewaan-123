@@ -20,6 +20,7 @@ import {
 import { FC } from "react";
 import { HomeViewProps } from "./Home.type";
 import TestimonialCard from "@/components/TestimonialCard/TestimonialCard.view";
+import Link from "next/link";
 
 const HomeView: FC<HomeViewProps> = ({ dummyTestimonials }) => {
   return (
@@ -29,10 +30,17 @@ const HomeView: FC<HomeViewProps> = ({ dummyTestimonials }) => {
           <h3 className="text-5xl">
             Tidak perlu repot-repot membeli alat yang hanya digunakan sesekali.
           </h3>
-          <Button size={"lg"} className="bg-blue-500 hover:bg-blue-400">
-            Sewa Alat
-            <ArrowRight />
-          </Button>
+          <div>
+            <Link href="/alat">
+              <Button
+                size={"lg"}
+                className="bg-blue-500 hover:bg-blue-400 group"
+              >
+                Sewa Alat
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
         </div>
         <div className="">
           <Image

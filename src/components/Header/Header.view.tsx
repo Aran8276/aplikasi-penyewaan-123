@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import ApplicationLogo from "../ApplicationLogo";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { adminNavData, navData } from "./NavData";
+import { adminNavData, navData } from "./Header.data";
 import {
   DropdownMenu,
   DropdownMenuContent,
