@@ -81,7 +81,7 @@ const HomeView: FC<HomeViewProps> = ({ dummyTestimonials }) => {
         </section>
       </section>
 
-      <section className="flex flex-col px-24 space-y-4">
+      <section className="flex flex-col px-24 space-y-8">
         <div className="flex flex-col space-y-8">
           <h2 className="text-4xl">Banyak Pelanggan Puas</h2>
           <p className="text-gray-600 text-lg">
@@ -101,7 +101,7 @@ const HomeView: FC<HomeViewProps> = ({ dummyTestimonials }) => {
             ))}
           </CarouselContent>
 
-          <div className="absolute right-12 bottom-2">
+          <div className="absolute right-12 bottom-0">
             <CarouselPrevious />
             <CarouselNext />
           </div>
