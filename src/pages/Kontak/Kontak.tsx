@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
-import TentangView from "./Tentang.view";
-import { FormData } from "./Tentang.type";
+import TentangView from "./Kontak.view";
+import { FormData } from "./Kontak.type";
 
 const Tentang = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -13,7 +13,11 @@ const Tentang = () => {
   });
 
   // Handle perubahan input
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -24,7 +28,13 @@ const Tentang = () => {
     alert("Pesan Anda telah dikirim!");
   };
 
-  return <TentangView formData={formData} handleChange={handleChange} handleSubmit={handleSubmit} />;
+  return (
+    <TentangView
+      formData={formData}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+    />
+  );
 };
 
 export default Tentang;
