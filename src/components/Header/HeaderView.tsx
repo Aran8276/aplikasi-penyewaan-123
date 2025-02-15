@@ -1,10 +1,20 @@
-import React from "react";
+import React, { FC } from "react";
 import ApplicationLogo from "../ApplicationLogo";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { navData } from "./NavData";
+import { adminNavData, navData } from "./NavData";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { HeaderViewProps } from "./Header.type";
+import { ChevronDown } from "lucide-react";
 
-export default function HeaderView() {
+const HeaderView: FC<HeaderViewProps> = ({ isAdmin }) => {
   return (
     <header className="flex items-center justify-between py-4 px-12">
       <ApplicationLogo />
@@ -18,15 +28,33 @@ export default function HeaderView() {
             {item.name}
           </Link>
         ))}
+
+        {isAdmin && (
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center opacity-50 hover:opacity-100 transition-all">
+              <ChevronDown />
+              <div className="px-2">Admin</div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>Menu Admin</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {adminNavData.map((item, index) => (
+                <DropdownMenuItem key={index}>{item.name}</DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
       </nav>
       <section className="flex space-x-3">
         <Button className="px-6" variant={"ghost"}>
           Masuk
         </Button>
         <Link href="/login">
-        <Button className="px-6 bg-indigo-500">Daftar</Button>
+          <Button className="px-6 bg-indigo-500">Daftar</Button>
         </Link>
       </section>
     </header>
   );
-}
+};
+
+export default HeaderView;
