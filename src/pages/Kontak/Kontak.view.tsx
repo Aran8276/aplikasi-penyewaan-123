@@ -1,22 +1,36 @@
-import { FormData } from "./Tentang.type";
+import { FormData } from "./Kontak.type";
 
 interface TentangViewProps {
   formData: FormData;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => void;
+  handleChange: (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => void;
   handleSubmit: (e: React.FormEvent) => void;
 }
 
-const TentangView: React.FC<TentangViewProps> = ({ formData, handleChange, handleSubmit }) => {
+const TentangView: React.FC<TentangViewProps> = ({
+  formData,
+  handleChange,
+  handleSubmit,
+}) => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
-        <h1 className="text-2xl font-bold text-center text-gray-800">Hubungi Kami</h1>
-        <p className="text-gray-600 text-center mb-4">Isi formulir ini untuk menghubungi kami.</p>
+        <h1 className="text-2xl font-bold text-center text-gray-800">
+          Hubungi Kami
+        </h1>
+        <p className="text-gray-600 text-center mb-4">
+          Isi formulir ini untuk menghubungi kami.
+        </p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Nama Lengkap */}
           <div>
-            <label className="block text-gray-700 font-medium">Nama Lengkap</label>
+            <label className="block text-gray-700 font-medium">
+              Nama Lengkap
+            </label>
             <input
               type="text"
               name="name"
@@ -29,7 +43,9 @@ const TentangView: React.FC<TentangViewProps> = ({ formData, handleChange, handl
 
           {/* Alamat Email */}
           <div>
-            <label className="block text-gray-700 font-medium">Alamat Email</label>
+            <label className="block text-gray-700 font-medium">
+              Alamat Email
+            </label>
             <input
               type="email"
               name="email"
@@ -42,7 +58,9 @@ const TentangView: React.FC<TentangViewProps> = ({ formData, handleChange, handl
 
           {/* Nomor Telepon */}
           <div>
-            <label className="block text-gray-700 font-medium">Nomor Telepon</label>
+            <label className="block text-gray-700 font-medium">
+              Nomor Telepon
+            </label>
             <input
               type="tel"
               name="phone"
@@ -54,7 +72,9 @@ const TentangView: React.FC<TentangViewProps> = ({ formData, handleChange, handl
 
           {/* Subjek Pesan */}
           <div>
-            <label className="block text-gray-700 font-medium">Subjek Pesan</label>
+            <label className="block text-gray-700 font-medium">
+              Subjek Pesan
+            </label>
             <select
               name="subject"
               value={formData.subject}
@@ -71,7 +91,9 @@ const TentangView: React.FC<TentangViewProps> = ({ formData, handleChange, handl
 
           {/* Pesan / Deskripsi */}
           <div>
-            <label className="block text-gray-700 font-medium">Pesan / Deskripsi</label>
+            <label className="block text-gray-700 font-medium">
+              Pesan / Deskripsi
+            </label>
             <textarea
               name="message"
               value={formData.message}
