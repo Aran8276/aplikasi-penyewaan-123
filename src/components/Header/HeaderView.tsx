@@ -23,7 +23,9 @@ export default function HeaderView() {
         <Button className="px-6" variant={"ghost"}>
           Masuk
         </Button>
+        <Link href="/login">
         <Button className="px-6 bg-indigo-500">Daftar</Button>
+        </Link>
       </section>
     </header>
   );
