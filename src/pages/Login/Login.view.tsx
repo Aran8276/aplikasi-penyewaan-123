@@ -1,8 +1,10 @@
 import { Lock, User } from "lucide-react";
 import Link from "next/link";
 import React, { FC, memo } from "react";
+import { LoginProps } from "./Login.type";
+import LoadableButton from "@/components/LoadableButton/LoadableButton";
 
-const LoginView: FC = () => {
+const LoginView: FC<LoginProps> = ({ isLoading, error, onSubmit }) => {
   return (
     <div className="flex bg-gradient-to-r from-fuchsia-500 to-cyan-500 items-center justify-center min-h-screen bg-">
       <div className="bg-white rounded-2xl shadow-lg flex max-w-4xl w-full">
@@ -20,11 +22,17 @@ const LoginView: FC = () => {
             <h1 className="text-3xl font-bold text-indigo-500 mt-4">Masuk</h1>
           </div>
 
-          <form className="flex flex-col w-full">
+          <form onSubmit={onSubmit} className="flex flex-col w-full">
             <div className="relative mb-8">
               <User className="absolute left-3 text-gray-400" />
               <div className="login-input-container">
-                <input type="text" className="pl-12 py-1" id="input" required />
+                <input
+                  name="email"
+                  type="text"
+                  className="pl-12 py-1"
+                  id="input"
+                  required
+                />
 
                 <label htmlFor="input" className="pl-12 label">
                   Email
@@ -37,6 +45,7 @@ const LoginView: FC = () => {
               <Lock className="absolute left-3 text-gray-400" />
               <div className="login-input-container">
                 <input
+                  name="password"
                   type="password"
                   className="pl-12 py-1"
                   id="input"
@@ -50,17 +59,20 @@ const LoginView: FC = () => {
               </div>
             </div>
 
-            <div className="text-right mb-4">
+            <div className="flex justify-between mb-4">
+              <p className="text-red-500">{error}</p>
               <a href="#" className="text-sm text-indigo-500 hover:underline">
                 Lupa Password?
               </a>
             </div>
-            <button
+
+            <LoadableButton
+              loading={isLoading}
               type="submit"
               className="w-full bg-indigo-500 text-white py-3 rounded-lg font-semibold hover:bg-indigo-600 transition"
             >
               MASUK
-            </button>
+            </LoadableButton>
           </form>
 
           <p className="mt-4 text-gray-600">
