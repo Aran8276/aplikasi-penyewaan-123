@@ -3,8 +3,5 @@ export interface Alat {
   alatDeskripsi: string;
   alatHargaPerHari: number;
   alatStok: number;
-}
-
-export interface AlatProps {
-  data: Alat[];
+  alatGambar: string;
 }

@@ -38,9 +38,9 @@ const AlatView: FC<AlatProps> = ({ data }) => {
             <SelectGroup>
               <SelectLabel>Kategori Alat</SelectLabel>
               <SelectItem value="0">Semua Kategori</SelectItem>
-              <SelectItem value="1">Kayu</SelectItem>
-              <SelectItem value="2">Mesin</SelectItem>
-              <SelectItem value="3">Manual</SelectItem>
+              <SelectItem value="1">Palu</SelectItem>
+              <SelectItem value="2">Gergaji</SelectItem>
+              <SelectItem value="3">Elektronik</SelectItem>
               <SelectItem value="4">Alat Mobil</SelectItem>
             </SelectGroup>
           </SelectContent>

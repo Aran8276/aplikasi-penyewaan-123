@@ -2,108 +2,123 @@ import { Alat } from "./Alat.type";
 
 export const dummyAlat: Alat[] = [
   {
-    alatNama: "Kipas",
+    alatNama: "Palu",
     alatDeskripsi:
-      "Kipas adalah peralatan yang digunakan untuk mengatur suhu ruangan.",
+      "Alat untuk memukul paku atau benda keras.",
     alatHargaPerHari: 1000,
     alatStok: 50,
+    alatGambar: "/palu.jpg",
   },
   {
-    alatNama: "AC",
+    alatNama: "Obeng",
     alatDeskripsi:
-      "AC adalah peralatan yang digunakan untuk mengatur suhu ruangan dengan lebih cepat dan efisien.",
-    alatHargaPerHari: 2000,
+      "Digunakan untuk mengencangkan atau melepas sekrup.",
+    alatHargaPerHari: 1000,
     alatStok: 30,
+    alatGambar: "/obeng.jpeg",
   },
   {
-    alatNama: "Kulkas",
+    alatNama: "Tang",
     alatDeskripsi:
-      "Kulkas adalah peralatan yang digunakan untuk mengatur suhu ruangan dengan lebih cepat dan efisien.",
-    alatHargaPerHari: 1500,
-    alatStok: 0,
-  },
-  {
-    alatNama: "Lampu",
-    alatDeskripsi:
-      "Lampu adalah peralatan yang digunakan untuk mengatur kebersihan ruangan.",
-    alatHargaPerHari: 500,
-    alatStok: 60,
-  },
-  {
-    alatNama: "Kipas",
-    alatDeskripsi:
-      "Kipas adalah peralatan yang digunakan untuk mengatur kebersihan ruangan.",
-    alatHargaPerHari: 1200,
-    alatStok: 0,
-  },
-  {
-    alatNama: "Kipas",
-    alatDeskripsi:
-      "Kipas adalah peralatan yang digunakan untuk mengatur suhu ruangan.",
+      "Alat untuk menjepit, memotong, atau membengkokkan kawat.",
     alatHargaPerHari: 1000,
-    alatStok: 50,
-  },
-  {
-    alatNama: "AC",
-    alatDeskripsi:
-      "AC adalah peralatan yang digunakan untuk mengatur suhu ruangan dengan lebih cepat dan efisien.",
-    alatHargaPerHari: 2000,
     alatStok: 0,
+    alatGambar: "/tang.jpg",
   },
   {
-    alatNama: "Kulkas",
+    alatNama: "Kunci Inggris",
     alatDeskripsi:
-      "Kulkas adalah peralatan yang digunakan untuk mengatur suhu ruangan dengan lebih cepat dan efisien.",
+      "Digunakan untuk mengencangkan atau melepas baut dengan ukuran yang bisa disesuaikan.",
+    alatHargaPerHari: 2000,
+    alatStok: 60,
+    alatGambar: "/inggris.jpeg",
+  },
+  {
+    alatNama: "Bor",
+    alatDeskripsi:
+      "Digunakan untuk melubangi berbagai jenis material seperti kayu, besi, atau beton.",
+    alatHargaPerHari: 3000,
+    alatStok: 0,
+    alatGambar: "/bor.jpeg",
+  },
+  {
+    alatNama: "Pahat Kayu",
+    alatDeskripsi:
+      "Alat untuk memahat dan membentuk kayu.",
+    alatHargaPerHari: 2000,
+    alatStok: 50,
+    alatGambar: "/pangkas.jpg",
+  },
+  {
+    alatNama: "Gergaji",
+    alatDeskripsi:
+      "Alat pemotong kayu, plastik, atau logam.",
+    alatHargaPerHari: 5000,
+    alatStok: 0,
+    alatGambar: "/gergaji.jpg",
+  },
+  {
+    alatNama: "Solder",
+    alatDeskripsi:
+      "Alat untuk menyambung komponen elektronik dengan timah.",
     alatHargaPerHari: 1500,
     alatStok: 40,
+    alatGambar: "/solder.jpeg",
   },
   {
-    alatNama: "Lampu",
+    alatNama: "Gerinda",
     alatDeskripsi:
-      "Lampu adalah peralatan yang digunakan untuk mengatur kebersihan ruangan.",
+      "Digunakan untuk memotong, menghaluskan, atau mengasah logam dan beton.",
     alatHargaPerHari: 500,
     alatStok: 60,
+    alatGambar: "/gerinda.jpg",
   },
   {
-    alatNama: "Kipas",
+    alatNama: "Micrometer",
     alatDeskripsi:
-      "Kipas adalah peralatan yang digunakan untuk mengatur kebersihan ruangan.",
+      "Alat ukur lebih presisi dibanding jangka sorong.",
     alatHargaPerHari: 1200,
     alatStok: 0,
+    alatGambar: "/micrometer.jpg",
   },
   {
-    alatNama: "Kipas",
+    alatNama: "Pemotong Pipa",
     alatDeskripsi:
-      "Kipas adalah peralatan yang digunakan untuk mengatur suhu ruangan.",
+      "Digunakan untuk memotong pipa PVC atau logam dengan lebih presisi.",
     alatHargaPerHari: 1000,
     alatStok: 50,
+    alatGambar: "/pipa.jpg",
   },
   {
-    alatNama: "AC",
+    alatNama: "Serut Kayu",
     alatDeskripsi:
-      "AC adalah peralatan yang digunakan untuk mengatur suhu ruangan dengan lebih cepat dan efisien.",
-    alatHargaPerHari: 2000,
+      "Alat manual untuk meratakan kayu.",
+    alatHargaPerHari: 20000,
     alatStok: 30,
+    alatGambar: "/kayu.jpg",
   },
   {
-    alatNama: "Kulkas",
+    alatNama: "Mesin Amplas",
     alatDeskripsi:
-      "Kulkas adalah peralatan yang digunakan untuk mengatur suhu ruangan dengan lebih cepat dan efisien.",
+      "Digunakan untuk menghaluskan permukaan kayu atau logam.",
     alatHargaPerHari: 1500,
     alatStok: 40,
+    alatGambar: "/amplas.jpeg",
   },
   {
-    alatNama: "Lampu",
+    alatNama: "Pistol Pemanas",
     alatDeskripsi:
-      "Lampu adalah peralatan yang digunakan untuk mengatur kebersihan ruangan.",
+      "Alat pemanas udara untuk melembutkan cat, plastik, atau bahan lain.",
     alatHargaPerHari: 500,
     alatStok: 60,
+    alatGambar: "/heat.jpeg",
   },
   {
-    alatNama: "Kipas",
+    alatNama: "Waterpass",
     alatDeskripsi:
-      "Kipas adalah peralatan yang digunakan untuk mengatur kebersihan ruangan.",
-    alatHargaPerHari: 1200,
+      "Alat untuk mengukur kesejajaran permukaan.",
+    alatHargaPerHari: 6000,
     alatStok: 0,
+    alatGambar: "/waterpass.jpg",
   },
 ];
