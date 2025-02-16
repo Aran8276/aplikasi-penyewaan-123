@@ -1,12 +1,11 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import LoginView from "./Login.view";
 import { useState } from "react";
 import { login } from "@/server-actions/login/Login.action";
 
 export default function Login() {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -34,7 +33,7 @@ export default function Login() {
       return;
     }
 
-    router.push("/");
+    redirect("/");
   }
   return <LoginView isLoading={isLoading} error={error} onSubmit={onSubmit} />;
 }

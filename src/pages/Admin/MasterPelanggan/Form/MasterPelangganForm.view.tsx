@@ -25,6 +25,9 @@ const MasterPelangganFormView: FC<MasterPelangganProps> = ({
         onSubmit={form.handleSubmit(onSubmit)}
         className="space-y-8 w-full px-[320px] py-10"
       >
+        <h2 className="text-3xl font-bold tracking-tight">
+          {type === "create" ? "Tambah" : "Update"} Pelanggan
+        </h2>
         <FormField
           control={form.control}
           name="pelangganNama"
