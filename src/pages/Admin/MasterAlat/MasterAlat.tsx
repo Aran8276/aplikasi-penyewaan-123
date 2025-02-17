@@ -1,6 +1,9 @@
 import React from "react";
 import MasterAlatView from "./MasterAlat.view";
+import { getAlat } from "@/server-actions/alat/Alat.action";
 
-export default function MasterAlat() {
-  return <MasterAlatView />;
+export default async function MasterAlat() {
+  const alat = await getAlat();
+
+  return <MasterAlatView alat={alat} />;
 }

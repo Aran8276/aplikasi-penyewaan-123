@@ -13,8 +13,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { HeaderViewProps } from "./Header.type";
 import { ChevronDown } from "lucide-react";
+import { logOut } from "@/server-actions/auth/Logout/Logout.action";
 
-const HeaderView: FC<HeaderViewProps> = ({ isAdmin }) => {
+const HeaderView: FC<HeaderViewProps> = ({ isAdmin, user }) => {
   return (
     <header className="flex items-center justify-between py-4 px-12">
       <ApplicationLogo />
@@ -53,12 +54,23 @@ const HeaderView: FC<HeaderViewProps> = ({ isAdmin }) => {
         )}
       </nav>
       <section className="flex space-x-3">
-        <Link href="/login">
-          <Button className="px-6" variant={"ghost"}>
-            Masuk
-          </Button>
-        </Link>
-        <Button className="px-6 bg-indigo-500">Daftar</Button>
+        {user && typeof user === "object" ? (
+          <div className="flex items-center space-x-8">
+            <p>{user.name}</p>
+            <Button onClick={logOut} variant={"outline"}>
+              Logout
+            </Button>
+          </div>
+        ) : (
+          <>
+            <Link href="/login">
+              <Button className="px-6" variant={"ghost"}>
+                Masuk
+              </Button>
+            </Link>
+            <Button className="px-6 bg-indigo-500">Daftar</Button>
+          </>
+        )}
       </section>
     </header>
   );

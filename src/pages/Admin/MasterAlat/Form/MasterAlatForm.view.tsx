@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { FC } from "react";
 import { MasterAlatProps } from "./MasterAlatForm.type";
+import LoadableButton from "@/components/LoadableButton/LoadableButton";
 
 const MasterAlatFormView: FC<MasterAlatProps> = ({
   form,
@@ -93,9 +94,9 @@ const MasterAlatFormView: FC<MasterAlatProps> = ({
           )}
         />
         <div className="flex space-x-3">
-          <Button type="submit">
+          <LoadableButton type="submit">
             {type === "create" ? "Simpan" : "Update"}
-          </Button>
+          </LoadableButton>
           <Button
             type="button"
             onClick={() => router.back()}

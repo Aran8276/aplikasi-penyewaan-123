@@ -9,19 +9,18 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import { dummyAlat } from "@/pages/Alat/Alat.data";
 import DeleteButton from "@/components/DeleteButton/DeleteButton";
 import EditButton from "@/components/EditButton";
 import Link from "next/link";
+import { MasterAlatProps } from "./MasterAlat.type";
+import { deleteAlat } from "@/server-actions/alat/Alat.action";
 
 export async function handleDelete(id: number) {
   "use server";
-
-  // handle delete ke server disini
-  console.log(`Hapus: ${id}`);
+  deleteAlat(id);
 }
 
-const MasterAlatView: FC = () => {
+const MasterAlatView: FC<MasterAlatProps> = ({ alat }) => {
   return (
     <section className="space-y-8 w-screen my-8 px-8">
       <div className="flex justify-between items-center">
@@ -46,21 +45,21 @@ const MasterAlatView: FC = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {dummyAlat.map((item, index) => (
+            {alat?.data?.map((item, index) => (
               <TableRow key={index}>
                 <TableCell className="font-medium">{index + 1}</TableCell>
-                <TableCell>{item.alatNama}</TableCell>
+                <TableCell>{item.alat_nama}</TableCell>
                 <TableCell className="max-w-[300px] truncate">
-                  {item.alatDeskripsi}
+                  {item.alat_deskripsi}
                 </TableCell>
                 <TableCell>
-                  Rp{item.alatHargaPerHari.toLocaleString()}
+                  Rp{item.alat_hargaperhari.toLocaleString()}
                 </TableCell>
-                <TableCell>{item.alatStok}</TableCell>
+                <TableCell>{item.alat_stok}</TableCell>
                 <TableCell>
                   <div className="flex space-x-2">
-                    <DeleteButton id={index + 1} action={handleDelete} />
-                    <EditButton href={`/admin/alat/update/${index + 1}`} />
+                    <DeleteButton id={item.alat_id} action={handleDelete} />
+                    <EditButton href={`/admin/alat/update/${item.alat_id}`} />
                   </div>
                 </TableCell>
               </TableRow>
