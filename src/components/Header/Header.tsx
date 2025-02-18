@@ -7,5 +7,6 @@ import { getUser } from "@/server-actions/auth/User/User.action";
 export default async function Header() {
   const user = await getUser();
   const isAdmin = true;
+  console.log(user);
   return <HeaderView user={user} isAdmin={isAdmin} />;
 }

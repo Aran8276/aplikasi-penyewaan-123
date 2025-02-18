@@ -14,7 +14,7 @@ export const logOut = async () => {
       console.log(error.message);
     }
   } finally {
-    cookieStore.delete("token");
+    cookieStore.delete("session");
     redirect("/login");
   }
 };
