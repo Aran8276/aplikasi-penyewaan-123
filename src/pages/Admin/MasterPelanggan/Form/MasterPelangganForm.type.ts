@@ -15,6 +15,7 @@ export interface MasterPelangganProps {
   >;
 
   onSubmit(values: z.infer<typeof formSchema>): void;
+  loading: boolean;
   router: AppRouterInstance;
   type: "create" | "update";
 }

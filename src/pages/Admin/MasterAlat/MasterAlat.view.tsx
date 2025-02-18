@@ -1,4 +1,6 @@
-import React, { FC, memo } from "react";
+"use client";
+
+import React, { FC, memo, useState } from "react";
 import {
   Table,
   TableBody,
@@ -13,14 +15,20 @@ import DeleteButton from "@/components/DeleteButton/DeleteButton";
 import EditButton from "@/components/EditButton";
 import Link from "next/link";
 import { MasterAlatProps } from "./MasterAlat.type";
+import { useRouter } from "next/navigation";
 import { deleteAlat } from "@/server-actions/alat/Alat.action";
-
-export async function handleDelete(id: number) {
-  "use server";
-  deleteAlat(id);
-}
+import { toast } from "sonner";
 
 const MasterAlatView: FC<MasterAlatProps> = ({ alat }) => {
+  const router = useRouter();
+  const [loading, setIsLoading] = useState(false);
+
+  const handleDelete = async (id: number) => {
+    setIsLoading(true);
+    deleteAlat(id);
+    toast("Pelanggan berhasil dihapus!");
+    router.refresh();
+  };
   return (
     <section className="space-y-8 w-screen my-8 px-8">
       <div className="flex justify-between items-center">
@@ -58,7 +66,11 @@ const MasterAlatView: FC<MasterAlatProps> = ({ alat }) => {
                 <TableCell>{item.alat_stok}</TableCell>
                 <TableCell>
                   <div className="flex space-x-2">
-                    <DeleteButton id={item.alat_id} action={handleDelete} />
+                    <DeleteButton
+                      loading={loading}
+                      id={item.alat_id}
+                      action={handleDelete}
+                    />
                     <EditButton href={`/admin/alat/update/${item.alat_id}`} />
                   </div>
                 </TableCell>

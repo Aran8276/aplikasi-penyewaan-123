@@ -20,6 +20,7 @@ const MasterAlatFormView: FC<MasterAlatProps> = ({
   onSubmit,
   router,
   type,
+  loading,
 }) => {
   return (
     <Form {...form}>
@@ -94,7 +95,7 @@ const MasterAlatFormView: FC<MasterAlatProps> = ({
           )}
         />
         <div className="flex space-x-3">
-          <LoadableButton type="submit">
+          <LoadableButton loading={loading} type="submit">
             {type === "create" ? "Simpan" : "Update"}
           </LoadableButton>
           <Button

@@ -12,12 +12,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { FC } from "react";
 import { MasterPelangganProps } from "./MasterPelangganForm.type";
+import LoadableButton from "@/components/LoadableButton/LoadableButton";
 
 const MasterPelangganFormView: FC<MasterPelangganProps> = ({
   form,
   onSubmit,
   router,
   type,
+  loading,
 }) => {
   return (
     <Form {...form}>
@@ -93,9 +95,9 @@ const MasterPelangganFormView: FC<MasterPelangganProps> = ({
         />
 
         <div className="flex space-x-3">
-          <Button type="submit">
+          <LoadableButton loading={loading} type="submit">
             {type === "create" ? "Simpan" : "Update"}
-          </Button>
+          </LoadableButton>
           <Button
             type="button"
             onClick={() => router.back()}

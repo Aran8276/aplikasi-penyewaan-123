@@ -1,6 +1,8 @@
 import React from "react";
 import MasterPelangganView from "./MasterPelanggan.view";
+import { getPelanggan } from "@/server-actions/pelanggan/Pelanggan.action";
 
-export default function MasterPelanggan() {
-  return <MasterPelangganView />;
+export default async function MasterPelanggan() {
+  const pelanggan = await getPelanggan();
+  return <MasterPelangganView pelanggan={pelanggan} />;
 }

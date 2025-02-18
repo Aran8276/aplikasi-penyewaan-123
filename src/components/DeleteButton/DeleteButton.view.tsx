@@ -14,8 +14,9 @@ import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 import { FC } from "react";
 import { DeleteButtonProps } from "./DeleteButton.type";
+import LoadableButton from "../LoadableButton/LoadableButton";
 
-const DeleteButtonView: FC<DeleteButtonProps> = ({ action, id }) => {
+const DeleteButtonView: FC<DeleteButtonProps> = ({ action, id, loading }) => {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -36,13 +37,14 @@ const DeleteButtonView: FC<DeleteButtonProps> = ({ action, id }) => {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Tutup</AlertDialogCancel>
-          <Button
+          <LoadableButton
+            loading={loading}
             onClick={() => action(id)}
             className="bg-red-500 text-white hover:bg-red-400"
           >
             <Trash2 />
             Hapus
-          </Button>
+          </LoadableButton>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

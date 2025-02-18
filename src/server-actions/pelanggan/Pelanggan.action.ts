@@ -2,11 +2,17 @@
 
 import client from "@/utils/axios-client";
 import { AxiosError } from "axios";
-import { ActionResponse, GetAlatResponse, StoreAlatRequest } from "./Alat.type";
+import {
+  ActionResponse,
+  GetPelangganResponse,
+  StorePelangganRequest,
+} from "./Pelanggan.type";
 
-export const getAlat = async (): Promise<GetAlatResponse | undefined> => {
+export const getPelanggan = async (): Promise<
+  GetPelangganResponse | undefined
+> => {
   try {
-    const data = (await client.get("/api/alat")).data;
+    const data = (await client.get("/api/pelanggan")).data;
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -16,11 +22,11 @@ export const getAlat = async (): Promise<GetAlatResponse | undefined> => {
   }
 };
 
-export const storeAlat = async (
-  formData: StoreAlatRequest
+export const storePelanggan = async (
+  formData: StorePelangganRequest
 ): Promise<ActionResponse | undefined> => {
   try {
-    const data = (await client.post("/api/alat", formData)).data;
+    const data = (await client.post("/api/pelanggan", formData)).data;
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -30,12 +36,12 @@ export const storeAlat = async (
   }
 };
 
-export const updateAlat = async (
-  formData: StoreAlatRequest,
+export const updatePelanggan = async (
+  formData: StorePelangganRequest,
   id: number
 ): Promise<ActionResponse | undefined> => {
   try {
-    const data = (await client.put(`/api/alat/${id}`, formData)).data;
+    const data = (await client.put(`/api/pelanggan/${id}`, formData)).data;
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -45,12 +51,11 @@ export const updateAlat = async (
   }
 };
 
-
-export const deleteAlat = async (
+export const deletePelanggan = async (
   id: number
 ): Promise<ActionResponse | undefined> => {
   try {
-    const data = (await client.delete(`/api/alat/${id}`)).data;
+    const data = (await client.delete(`/api/pelanggan/${id}`)).data;
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {
@@ -60,11 +65,11 @@ export const deleteAlat = async (
   }
 };
 
-export const showAlat = async (
+export const showPelanggan = async (
   id: number
 ): Promise<ActionResponse | undefined> => {
   try {
-    const data = (await client.get(`/api/alat/${id}`)).data;
+    const data = (await client.get(`/api/pelanggan/${id}`)).data;
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {

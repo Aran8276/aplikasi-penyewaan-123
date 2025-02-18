@@ -1,25 +1,51 @@
-import MasterAlatForm from "@/pages/Admin/MasterAlat/Form/MasterAlatForm";
+import MasterAlatForm, {
+  formSchema,
+} from "@/pages/Admin/MasterAlat/Form/MasterAlatForm";
+import { showAlat, updateAlat } from "@/server-actions/alat/Alat.action";
+import { redirect } from "next/navigation";
+import { z } from "zod";
 
-const exampleValues = {
-  alatNama: "halo",
-  alatDeskripsi: "alo",
-  alatHargaPerHari: 1000,
-  alatStok: 25,
-};
-
-export async function handleSubmit(object: object) {
+export async function handleSubmit(
+  object: z.infer<typeof formSchema>,
+  id?: number
+) {
   "use server";
 
   // handle delete ke server disini
-  console.log(object);
+  if (id) {
+    updateAlat(
+      {
+        alat_kategori_id: 2,
+        alat_nama: object.alatNama,
+        alat_deskripsi: object.alatDeskripsi,
+        alat_hargaperhari: Number(object.alatHargaPerHari),
+        alat_stok: Number(object.alatStok),
+      },
+      id
+    );
+  }
+  redirect("/admin/alat");
 }
 
-export default function page() {
+export default async function page({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const fetchValues = await showAlat(Number((await params).id));
+
+  const initialValues = {
+    alatNama: fetchValues ? fetchValues.data.alat_nama : "",
+    alatDeskripsi: fetchValues ? fetchValues.data.alat_deskripsi : "",
+    alatHargaPerHari: fetchValues ? fetchValues.data.alat_hargaperhari : 0,
+    alatStok: fetchValues ? fetchValues.data.alat_stok : 0,
+  };
   return (
     <MasterAlatForm
       type="update"
-      initialValues={exampleValues}
+      initialValues={initialValues || undefined}
       handler={handleSubmit}
+      id={Number((await params).id)}
     />
   );
 }

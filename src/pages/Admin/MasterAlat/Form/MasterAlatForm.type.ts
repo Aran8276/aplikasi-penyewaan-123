@@ -14,6 +14,7 @@ export interface MasterAlatProps {
     undefined
   >;
 
+  loading: boolean;
   onSubmit(values: z.infer<typeof formSchema>): void;
   router: AppRouterInstance;
   type: "create" | "update";
