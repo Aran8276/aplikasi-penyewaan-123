@@ -68,7 +68,11 @@ const HeaderView: FC<HeaderViewProps> = ({ isAdmin, user }) => {
                 Masuk
               </Button>
             </Link>
-            <Button className="px-6 bg-indigo-500">Daftar</Button>
+            <Link href="/sigin">
+              <Button className="px-6 bg-indigo-500">
+                Daftar
+              </Button>
+            </Link>
           </>
         )}
       </section>
