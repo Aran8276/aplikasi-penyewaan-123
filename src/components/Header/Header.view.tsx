@@ -54,7 +54,7 @@ const HeaderView: FC<HeaderViewProps> = ({ isAdmin, user }) => {
         )}
       </nav>
       <section className="flex space-x-3">
-        {user && typeof user === "object" ? (
+        {user && typeof user === "object" && Object.keys(user).length !== 0 ? (
           <div className="flex items-center space-x-8">
             <p>{user.name}</p>
             <Button onClick={logOut} variant={"outline"}>
@@ -69,9 +69,7 @@ const HeaderView: FC<HeaderViewProps> = ({ isAdmin, user }) => {
               </Button>
             </Link>
             <Link href="/sigin">
-              <Button className="px-6 bg-indigo-500">
-                Daftar
-              </Button>
+              <Button className="px-6 bg-indigo-500">Daftar</Button>
             </Link>
           </>
         )}

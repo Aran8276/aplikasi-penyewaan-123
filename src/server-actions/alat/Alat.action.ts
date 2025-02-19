@@ -25,6 +25,7 @@ export const storeAlat = async (
   } catch (error) {
     if (error instanceof AxiosError) {
       console.log(error.message);
+      console.log(error.response?.data);
       return error.response?.data;
     }
   }
@@ -44,7 +45,6 @@ export const updateAlat = async (
     }
   }
 };
-
 
 export const deleteAlat = async (
   id: number
