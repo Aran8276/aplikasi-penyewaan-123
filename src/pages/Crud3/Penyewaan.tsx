@@ -1,12 +1,10 @@
 "use client"; // Pastikan ini ada di bagian paling atas file
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Penyewaan = () => {
     // State untuk menyimpan data penyewaan
-    const [penyewaan, setPenyewaan] = useState([
-        { id: 1, pelanggan: 'John Doe', alat: 'Drill', tanggal: '2023-10-01', durasi: 2, detail: 'Detail penyewaan 1' }
-    ]);
+    const [penyewaan, setPenyewaan] = useState([]);
 
     // State untuk form tambah/edit penyewaan
     const [formData, setFormData] = useState({
@@ -21,13 +19,26 @@ const Penyewaan = () => {
     // State untuk mengontrol visibilitas form
     const [showForm, setShowForm] = useState(false);
 
+    // Fungsi untuk memuat data dari localStorage saat komponen pertama kali di-render
+    useEffect(() => {
+        const savedData = localStorage.getItem('penyewaan');
+        if (savedData) {
+            setPenyewaan(JSON.parse(savedData));
+        }
+    }, []);
+
+    // Fungsi untuk menyimpan data ke localStorage setiap kali ada perubahan
+    useEffect(() => {
+        localStorage.setItem('penyewaan', JSON.stringify(penyewaan));
+    }, [penyewaan]);
+
     // Fungsi untuk menghapus penyewaan
-    const handleDelete = (id: number) => {
+    const handleDelete = (id) => {
         setPenyewaan(penyewaan.filter(p => p.id !== id));
     };
 
     // Fungsi untuk menangani perubahan input form
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };

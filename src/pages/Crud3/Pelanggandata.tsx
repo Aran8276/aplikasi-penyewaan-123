@@ -1,12 +1,10 @@
 "use client"; // Pastikan ini ada di bagian paling atas file
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const PelangganData = () => {
     // State untuk menyimpan data pelanggan
-    const [pelanggan, setPelanggan] = useState([
-        { id: 1, nama: 'John Doe', alamat: 'Jl. Contoh No. 123', telepon: '08123456789' }
-    ]);
+    const [pelanggan, setPelanggan] = useState([]);
 
     // State untuk form tambah/edit pelanggan
     const [formData, setFormData] = useState({ id: null, nama: '', alamat: '', telepon: '' });
@@ -14,13 +12,26 @@ const PelangganData = () => {
     // State untuk mengontrol visibilitas form
     const [showForm, setShowForm] = useState(false);
 
+    // Fungsi untuk memuat data dari localStorage saat komponen pertama kali di-render
+    useEffect(() => {
+        const savedData = localStorage.getItem('pelanggan');
+        if (savedData) {
+            setPelanggan(JSON.parse(savedData));
+        }
+    }, []);
+
+    // Fungsi untuk menyimpan data ke localStorage setiap kali ada perubahan
+    useEffect(() => {
+        localStorage.setItem('pelanggan', JSON.stringify(pelanggan));
+    }, [pelanggan]);
+
     // Fungsi untuk menghapus pelanggan
-    const handleDelete = (id: number) => {
+    const handleDelete = (id) => {
         setPelanggan(pelanggan.filter(p => p.id !== id));
     };
 
     // Fungsi untuk menangani perubahan input form
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };

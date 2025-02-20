@@ -1,12 +1,10 @@
 "use client"; // Pastikan ini ada di bagian paling atas file
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const KategoriAlat = () => {
     // State untuk menyimpan data kategori alat
-    const [kategoriAlat, setKategoriAlat] = useState([
-        { id: 1, nama: 'Power Tools', deskripsi: 'Alat-alat listrik untuk berbagai keperluan' }
-    ]);
+    const [kategoriAlat, setKategoriAlat] = useState([]);
 
     // State untuk form tambah/edit kategori alat
     const [formData, setFormData] = useState({
@@ -18,13 +16,26 @@ const KategoriAlat = () => {
     // State untuk mengontrol visibilitas form
     const [showForm, setShowForm] = useState(false);
 
+    // Fungsi untuk memuat data dari localStorage saat komponen pertama kali di-render
+    useEffect(() => {
+        const savedData = localStorage.getItem('kategoriAlat');
+        if (savedData) {
+            setKategoriAlat(JSON.parse(savedData));
+        }
+    }, []);
+
+    // Fungsi untuk menyimpan data ke localStorage setiap kali ada perubahan
+    useEffect(() => {
+        localStorage.setItem('kategoriAlat', JSON.stringify(kategoriAlat));
+    }, [kategoriAlat]);
+
     // Fungsi untuk menghapus kategori alat
-    const handleDelete = (id: number) => {
+    const handleDelete = (id) => {
         setKategoriAlat(kategoriAlat.filter(k => k.id !== id));
     };
 
     // Fungsi untuk menangani perubahan input form
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
