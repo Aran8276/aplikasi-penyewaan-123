@@ -1,5 +1,5 @@
 describe('Scroll Test', () => {
-  it('should navigate to Alat page and scroll', () => {
+  it('should navigate to Alat page, scroll, and click the hammer image', () => {
     // Kunjungi halaman utama
     cy.visit('http://localhost:3000/');
 
@@ -22,5 +22,8 @@ describe('Scroll Test', () => {
 
     // Scroll ke posisi tertentu (misalnya, 500px dari atas)
     cy.scrollTo(0, 500, { duration: 2000 }); // Scroll ke posisi 500px dari atas
+
+    // Klik gambar palu setelah scroll
+    cy.get('img[alt="Palu"]').click(); // Ganti 'Palu' dengan atribut alt yang sesuai pada gambar palu
   });
 });
