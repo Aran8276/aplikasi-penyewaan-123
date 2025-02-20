@@ -1,14 +1,8 @@
-import { defineConfig } from "cypress";
+const { defineConfig } = require('cypress');
 
-export default defineConfig({
-	e2e: {
-		baseUrl: 'http://localhost:3000/',
-		specPattern: [
-            'cypress/unit/**/*.cy.{js,jsx,ts,tsx}',
-            'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}'
-        ],
-		setupNodeEvents(on, config) {
-			
-		},
-	},
+module.exports = defineConfig({
+  e2e: {
+    baseUrl: 'http://localhost:3000', // Your Next.js app URL
+    supportFile: false,
+  },
 });
